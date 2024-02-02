@@ -17,8 +17,9 @@ entered for that food and just account for the serving
 size the user enters. If the food isn't in the database,
 the program will prompt the user to enter the calorie
 count per serving, the serving size, and how much
-of that food the user consumed. The program will
-sum the calories of every entry and inform the user
+of that food the user consumed. If the user eats the same thing
+as their previous entry, they can simply duplicate the previous entry.
+The program will sum the calories of every entry and inform the user
 how many more calories they need or how many calories over
 they are for the day. Each day
 the total calorie count will be reset at 12:00 AM 
@@ -29,8 +30,9 @@ enter anything for a day, the program will ask if
 they ate anything that day the next time they open the program.
 The user can either enter
 what they ate that day or the program will just input a 
-calorie intake of 0 for that day. The program will also display a
-the users results for the past 7 days. The user will also always
+calorie intake of 0 for that day. The user can also add in the amount of
+calories they burned from any extensive exercise they did that day.
+The program will also display the users results for the past 7 days. The user will also always
 have the option to change their ideal weight, current weight and height.
 
 Anybody wishing to hit certain weight goals or just watch their
@@ -45,3 +47,8 @@ this project, I would first set it to gaining weight, then once I'm
 happy with my weight, I'd set it to lose weight. Thus, this project
 seems quite practical to me.
 
+**User Stories**:
+- As a user I want to be able to add the calories of something I ate to my caloric intake for that day
+- As a user I want to be able to view my caloric intake for the past 7 days
+- As a user I want to be able to set new weight goals and update my weight progress as I go
+- As a user I want to be able to enter the previous thing I ate quickly by duplicating my previous entry.
