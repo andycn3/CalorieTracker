@@ -5,7 +5,7 @@
 **PROJECT DESCRIPTION:**
 
 This application will first ask the user to
-enter their weight *(lbs)*, height *(ft/in)* and
+enter their weight *(lbs)* and
 weight goal *(lbs)* to calculate
 the recommended daily caloric intake for the user.
 The user will need to enter everything they eat and
@@ -22,10 +22,10 @@ as their previous entry, they can simply duplicate the previous entry.
 The program will sum the calories of every entry and inform the user
 how many more calories they need or how many calories over
 they are for the day. Each day
-the total calorie count will be reset at 12:00 AM 
+the user can reset the total calorie count for the next day
 and the program will then inform the user how
 close they were to their goal for that given day.
-If the user doesn't open the program or doesn't
+If the user doesn't 
 enter anything for a day, the program will ask if
 they ate anything that day the next time they open the program.
 The user can either enter
