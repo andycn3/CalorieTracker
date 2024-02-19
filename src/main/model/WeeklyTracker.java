@@ -15,10 +15,6 @@ public class WeeklyTracker {
         return weekCals;
     }
 
-    public void setWeekCals(LinkedList<Integer> week) {
-        weekCals = week;
-    }
-
     //MODIFIES: This
     //EFFECTS: If there isn't 7 entries in the list then it just adds the calorie count for that day
     //If there is 7 entries in the list it adds the current daily count and removes the earliest entry

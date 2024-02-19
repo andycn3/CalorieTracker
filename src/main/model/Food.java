@@ -17,20 +17,8 @@ public class Food {
         return servingSize;
     }
 
-    public void setServingSize(int servingSize) {
-        this.servingSize = servingSize;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setCals(int cals) {
-        this.cals = cals;
     }
 
     public int getCals() {

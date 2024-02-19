@@ -26,10 +26,6 @@ public class SavedFoods {
         return knownFoods;
     }
 
-    public void setKnownFoods(LinkedList<Food> foods) {
-        knownFoods = foods;
-    }
-
     //REQUIRES: Food is not already in knownFoods
     //MODIFIES: This
     //EFFECTS: Adds food to
