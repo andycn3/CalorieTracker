@@ -72,9 +72,7 @@ public class JsonReader {
             int cals = nextFood.getInt("cals");
             int size = nextFood.getInt("servingSize");
             Food f = new Food(meal, cals, size);
-            if (!(tm.getSavedFoods().getKnownFoods().contains(f))) {
-                tm.getSavedFoods().addSavedFood(meal, cals);
-            }
+            tm.getSavedFoods().addSavedFood(meal, cals);
         }
     }
 
