@@ -211,6 +211,7 @@ public class UserInterface {
         newGoal = newGoal.toLowerCase();
         wg.setGoal(newGoal);
         System.out.println("Your new daily calorie goal is " + wg.calorieGoal(wg));
+        tm.setWeightGoal(wg);
     }
 
     private void end() {

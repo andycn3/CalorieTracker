@@ -29,6 +29,8 @@ public class SavedFoods {
         return knownFoods;
     }
 
+    //MODIFIES: This
+    //EFFECTS: Sets knownFoods in savedFoods to a new list of foods
     public void setKnownFoods(LinkedList<Food> f) {
         knownFoods = f;
     }

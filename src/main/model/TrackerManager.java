@@ -39,6 +39,8 @@ public class TrackerManager implements Writable {
         return wg;
     }
 
+    //MODIFIES: This
+    //EFFECTS: Sets tracker manager's weight goal as a new weight goal
     public void setWeightGoal(WeightGoal goal) {
         wg = goal;
     }

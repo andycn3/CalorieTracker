@@ -20,6 +20,13 @@ public class SavedFoodsTest {
     }
 
     @Test
+    void setKnownFoodsTest() {
+        SavedFoods saved = new SavedFoods();
+        saved.addSavedFood("Cake", 500);
+        sf.setKnownFoods(saved.getKnownFoods());
+        assertEquals(sf.getKnownFoods(), saved.getKnownFoods());
+    }
+    @Test
     void addSavedFoodTest() {
         sf.addSavedFood("Apple", 50);
         assertEquals(12, sf.getKnownFoods().size());
