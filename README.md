@@ -15,6 +15,7 @@ will be a database in the program with common foods
 and meals so the program can use the calories already
 entered for that food and just account for the serving
 size the user enters. The user can add to this database
+by entering the food name and how many calories per serving 
 if they wish to. If the food isn't in the database,
 the program will prompt the user to enter the calorie
 count per serving, the serving size, and how much
