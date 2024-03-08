@@ -1,6 +1,11 @@
 package model;
 
-public class WeightGoal {
+import org.json.JSONObject;
+import persistence.Writable;
+
+//Represents what the user wants to do about their weight either lose, maintain, or gain
+//and what their current weight is
+public class WeightGoal implements Writable {
 
     private String goal;
     private int currentWeight;
@@ -30,13 +35,21 @@ public class WeightGoal {
 
     //EFFECTS: Returns approximately how many calories the user should eat per day
     public int calorieGoal(WeightGoal wg) {
-        if (wg.getGoal().equals("Maintain")) {
+        if (wg.getGoal().equals("maintain")) {
             return 15 * wg.getCurrentWeight();
-        } else if (wg.getGoal().equals("Lose")) {
+        } else if (wg.getGoal().equals("lose")) {
             return (15 * wg.getCurrentWeight()) - 700;
         } else {
             return (15 * wg.getCurrentWeight()) + 700;
         }
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("goal", goal);
+        json.put("currentWeight", currentWeight);
+        return json;
     }
 
 }

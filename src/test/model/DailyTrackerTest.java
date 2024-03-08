@@ -3,7 +3,6 @@ package model;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
-import java.util.ArrayList;
 
 class DailyTrackerTest {
 
@@ -18,14 +17,15 @@ class DailyTrackerTest {
     @Test
     void constructorTest() {
         assertEquals(0, dt.getDailyCount());
+        assertEquals(0, dt.getPreviousCals());
     }
 
     @Test
     void addFoodTest() {
-        dt.addFood(s.getSavedFoods().get(0), 1);
+        dt.addFood(s.getKnownFoods().get(0), 1);
         assertEquals(400, dt.getDailyCount());
         assertEquals(400, dt.getPreviousCals());
-        dt.addFood(s.getSavedFoods().get(3), 2);
+        dt.addFood(s.getKnownFoods().get(3), 2);
         assertEquals(2800, dt.getDailyCount());
         assertEquals(2400, dt.getPreviousCals());
     }

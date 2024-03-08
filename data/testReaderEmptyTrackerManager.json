@@ -1,0 +1,69 @@
+{
+    "weeklyTracker": [],
+    "weightGoal": {
+        "goal": "gain",
+        "currentWeight": 0
+    },
+    "knownFoods": [
+        {
+            "name": "burger",
+            "cals": 400,
+            "servingSize": 1
+        },
+        {
+            "name": "pizza slice",
+            "cals": 285,
+            "servingSize": 1
+        },
+        {
+            "name": "fries",
+            "cals": 365,
+            "servingSize": 1
+        },
+        {
+            "name": "alfredo pasta",
+            "cals": 1200,
+            "servingSize": 1
+        },
+        {
+            "name": "tomato pasta",
+            "cals": 380,
+            "servingSize": 1
+        },
+        {
+            "name": "wings",
+            "cals": 309,
+            "servingSize": 1
+        },
+        {
+            "name": "tacos",
+            "cals": 160,
+            "servingSize": 1
+        },
+        {
+            "name": "steak",
+            "cals": 550,
+            "servingSize": 1
+        },
+        {
+            "name": "cereal",
+            "cals": 250,
+            "servingSize": 1
+        },
+        {
+            "name": "eggs",
+            "cals": 148,
+            "servingSize": 1
+        },
+        {
+            "name": "rice",
+            "cals": 200,
+            "servingSize": 1
+        }
+    ],
+    "name": "Loaded file",
+    "dailyTracker": {
+        "previousCals": 0,
+        "dailyCount": 0
+    }
+}

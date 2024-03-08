@@ -52,3 +52,5 @@ seems quite practical to me.
 - As a user I want to be able to view my caloric intake for the past 7 days
 - As a user I want to be able to set new weight goals and update my weight progress as I go
 - As a user I want to be able to enter the previous thing I ate quickly by duplicating my previous entry.
+- As a user I want to have the option to save my daily and weekly calorie tracker when I close the app
+- As a user I want to have the option to load my weekly and daily tracker when I re-open the app

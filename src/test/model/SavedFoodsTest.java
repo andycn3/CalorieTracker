@@ -3,22 +3,41 @@ package model;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
-import java.util.ArrayList;
 
 public class SavedFoodsTest {
 
-    SavedFoods sf = new SavedFoods();
+    SavedFoods sf;
+
+    @BeforeEach
+    void runBefore() {
+        sf = new SavedFoods();
+    }
+
 
     @Test
     void constructorTest() {
-        assertEquals(sf.getSavedFoods().size(), 11);
+        assertEquals(sf.getKnownFoods().size(), 11);
     }
 
     @Test
     void addSavedFoodTest() {
-        sf.addSavedFood("Apple", 50, 100);
-        assertEquals(12, sf.getSavedFoods().size());
-        String s = sf.getSavedFoods().get(11).getName();
+        sf.addSavedFood("Apple", 50);
+        assertEquals(12, sf.getKnownFoods().size());
+        String s = sf.getKnownFoods().get(11).getName();
         assertEquals("Apple", s);
+    }
+
+    @Test
+    void addAlreadySavedFoodTest() {
+        sf.addSavedFood("burger", 400);
+        assertEquals(11, sf.getKnownFoods().size());
+        String s = sf.getKnownFoods().get(10).getName();
+        assertEquals("rice", s);
+    }
+
+    @Test
+    void hasNameTest() {
+        assertTrue(sf.hasName("alfredo pasta"));
+        assertFalse(sf.hasName("bread"));
     }
 }

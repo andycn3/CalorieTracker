@@ -1,28 +1,27 @@
 package model;
 
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-import java.util.ArrayList;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class WeightGoalTest {
 
-    WeightGoal wg = new WeightGoal("Lose", 150);
+    WeightGoal wg = new WeightGoal("lose", 150);
 
     @Test
     void constructorTest() {
-        assertEquals(wg.getGoal(), "Lose");
+        assertEquals(wg.getGoal(), "lose");
         assertEquals(wg.getCurrentWeight(), 150);
     }
 
     @Test
     void calorieGoalTest() {
         assertEquals(1550, wg.calorieGoal(wg));
-        wg.setGoal("Maintain");
+        wg.setGoal("maintain");
         assertEquals(2250, wg.calorieGoal(wg));
-        wg.setGoal("Gain");
+        wg.setGoal("gain");
         assertEquals(2950, wg.calorieGoal(wg));
-        wg.setGoal("Maintain");
+        wg.setGoal("maintain");
         wg.setCurrentWeight(190);
         assertEquals(2850, wg.calorieGoal(wg));
     }

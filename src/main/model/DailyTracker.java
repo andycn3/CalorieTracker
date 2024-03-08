@@ -1,6 +1,13 @@
+
+
+
 package model;
 
-public class DailyTracker {
+import org.json.JSONObject;
+import persistence.Writable;
+
+// //A counter that tracks the users caloric intake for the day and the calories of the previous entry
+public class DailyTracker implements Writable {
 
     private int dailyCount;
     private int previousCals;
@@ -8,17 +15,18 @@ public class DailyTracker {
     //EFFECTS: Creates a new daily tracker with the calories for the day set at 0
     public DailyTracker() {
         dailyCount = 0;
+        previousCals = 0;
     }
 
-    //REQUIRES: meal is one of the foods in the database
+    //REQUIRES: meal is one of the foods in the database and serving > 0
     //MODIFIES: This
     //EFFECTS: Calculates and adds the amount of calories consumed for that sitting and saves it as previousCals
     public void addFood(Food meal, int serving) {
-        dailyCount += (meal.getCals() * (serving / meal.getServingSize()));
-        previousCals = (meal.getCals() * (serving / meal.getServingSize()));
+        dailyCount += (meal.getCals() * serving);
+        previousCals = (meal.getCals() * serving);
     }
 
-    //REQUIRES: Food is not in the database
+    //REQUIRES: Food is not in the database and serving and servingSize > 0
     //MODIFIES: This
     //EFFECTS: Calculates and adds the amount of calories consumed for that sitting and saves it as previousCals
     public void addFoodNotListed(int cals, int serving, int servingSize) {
@@ -33,6 +41,7 @@ public class DailyTracker {
         dailyCount += previousCals;
     }
 
+    //REQUIRES: cals > 0
     //MODIFIES: This
     //EFFECTS: Removes calories burned from dailyCount
     public void removeCals(int cals) {
@@ -45,6 +54,22 @@ public class DailyTracker {
 
     public int getPreviousCals() {
         return previousCals;
+    }
+
+    public void setDailyCount(int num) {
+        dailyCount = num;
+    }
+
+    public void setPreviousCals(int num) {
+        previousCals = num;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("dailyCount", dailyCount);
+        json.put("previousCals", previousCals);
+        return json;
     }
 
 }

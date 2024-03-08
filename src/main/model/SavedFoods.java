@@ -1,7 +1,10 @@
 package model;
 
+import org.json.JSONArray;
+
 import java.util.LinkedList;
 
+//A list of common food items with name and calories per serving
 public class SavedFoods {
 
     private LinkedList<Food> knownFoods;
@@ -9,29 +12,57 @@ public class SavedFoods {
 
     public SavedFoods() {
         knownFoods = new LinkedList<Food>();
-        knownFoods.add(new Food("Burger", 400, 1));
-        knownFoods.add(new Food("Pizza Slice", 285, 1));
-        knownFoods.add(new Food("Fries", 365, 1));
-        knownFoods.add(new Food("Alfredo Pasta", 1200, 1));
-        knownFoods.add(new Food("Tomato Pasta", 380, 1));
-        knownFoods.add(new Food("Wings", 309, 1));
-        knownFoods.add(new Food("Tacos", 160, 1));
-        knownFoods.add(new Food("Steak", 550, 1));
-        knownFoods.add(new Food("Cereal", 250, 1));
-        knownFoods.add(new Food("Eggs", 148, 1));
-        knownFoods.add(new Food("Rice", 200, 1));
+        knownFoods.add(new Food("burger", 400, 1));
+        knownFoods.add(new Food("pizza slice", 285, 1));
+        knownFoods.add(new Food("fries", 365, 1));
+        knownFoods.add(new Food("alfredo pasta", 1200, 1));
+        knownFoods.add(new Food("tomato pasta", 380, 1));
+        knownFoods.add(new Food("wings", 309, 1));
+        knownFoods.add(new Food("tacos", 160, 1));
+        knownFoods.add(new Food("steak", 550, 1));
+        knownFoods.add(new Food("cereal", 250, 1));
+        knownFoods.add(new Food("eggs", 148, 1));
+        knownFoods.add(new Food("rice", 200, 1));
     }
 
-    public LinkedList<Food> getSavedFoods() {
+    public LinkedList<Food> getKnownFoods() {
         return knownFoods;
     }
 
-    //REQUIRES: Food is not already in knownFoods
+    public void setKnownFoods(LinkedList<Food> f) {
+        knownFoods = f;
+    }
+
+    //REQUIRES: Food is not already in knownFoods and size > 0
     //MODIFIES: This
-    //EFFECTS: Adds food to
-    public void addSavedFood(String meal, int cals, int size) {
-        Food food = new Food(meal, cals, size);
-        knownFoods.add(food);
+    //EFFECTS: Adds food to saved foods
+    public void addSavedFood(String meal, int cals) {
+        Food food = new Food(meal, cals, 1);
+        if (!(hasName(meal))) {
+            knownFoods.add(food);
+        }
+
+    }
+
+    public boolean hasName(String meal) {
+        boolean hasName = false;
+        for (Food f : knownFoods) {
+            if (meal.equals(f.getName())) {
+                hasName = true;
+                return hasName;
+            }
+        }
+        return hasName;
+    }
+
+    public JSONArray toJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Food f : knownFoods) {
+            jsonArray.put(f.toJson());
+        }
+
+        return jsonArray;
     }
 
 }
