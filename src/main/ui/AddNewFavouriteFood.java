@@ -39,6 +39,8 @@ public class AddNewFavouriteFood extends JFrame implements ActionListener {
         setLocationRelativeTo(null);
     }
 
+    //MODIFIES: InitialGUi
+    //EFFECTS: Adds food to saved foods with name and cals
     @Override
     public void actionPerformed(ActionEvent e) {
         try {

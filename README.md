@@ -56,3 +56,16 @@ seems quite practical to me.
 - As a user I want to be able to enter the previous thing I ate quickly by duplicating my previous entry.
 - As a user I want to have the option to save my daily and weekly calorie tracker when I close the app
 - As a user I want to have the option to load my weekly and daily tracker when I re-open the app
+
+# Instructions for Grader
+
+- You can generate the first required action related to the user story "adding multiple Xs to a Y" by
+pressing Add Favourite and entering the food name and cals
+- You can generate the second required action related to the user story "adding multiple Xs to a Y" by
+pressing Add Eaten as it displays the list of saved foods
+- You can locate my visual component by
+going to the home page as that's where the image is
+- You can save the state of my application by
+pressing quit then selecting yes when prompted to save
+- You can reload the state of my application by
+pressing saved file on the initial welcome screen.

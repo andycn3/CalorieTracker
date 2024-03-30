@@ -34,6 +34,7 @@ public class AddEaten extends JFrame implements ActionListener {
     private JLabel notSaved;
     private InitialGUI gui;
 
+    //Constructor
     public AddEaten(TrackerManager tm, InitialGUI gui) {
         super("Add Eaten");
         trackerManager = tm;
@@ -59,6 +60,8 @@ public class AddEaten extends JFrame implements ActionListener {
         setLocationRelativeTo(null);
     }
 
+    //MODIFIES: This
+    //EFFECTS: Helper to assemble the right side of frame
     public void displayRight() {
         setRight();
         save = new JPanel();
@@ -83,6 +86,8 @@ public class AddEaten extends JFrame implements ActionListener {
         right.add(notSave);
     }
 
+    //MODIFIES: This
+    //EFFECTS: Sets the variables on right side
     public void setRight() {
         instructions = new JTextField("Enter the food information");
         saved = new JLabel("If the food is in the list, fill this out");
@@ -103,7 +108,8 @@ public class AddEaten extends JFrame implements ActionListener {
         right.setVisible(true);
     }
 
-
+    //MODIFIES: This
+    //EFFECTS: Creates list of foods for left side
     public void displayFoods() {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         textArea.setEditable(false);
@@ -117,6 +123,7 @@ public class AddEaten extends JFrame implements ActionListener {
         left.add(textArea);
     }
 
+    //EFFECTS: Creates text for all saved foods
     public String createText(List<Food> savedFoods) {
         String fullText = "";
         for (Food f : savedFoods) {
@@ -125,6 +132,8 @@ public class AddEaten extends JFrame implements ActionListener {
         return fullText;
     }
 
+    //MODIFIES: Initial Gui
+    //EFFECTS: Adds calories of food to daily tracker using either saved or not saved foods
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     @Override
     public void actionPerformed(ActionEvent e) {

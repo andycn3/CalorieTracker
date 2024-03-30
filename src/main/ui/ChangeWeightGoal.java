@@ -40,7 +40,8 @@ public class ChangeWeightGoal extends JFrame implements ActionListener {
         setLocationRelativeTo(null);
     }
 
-
+    //MODIFIES: InitialGUi
+    //EFFECTS: Sets weight goal to new goal and weight
     @Override
     public void actionPerformed(ActionEvent e) {
         try {

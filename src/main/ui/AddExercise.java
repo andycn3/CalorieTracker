@@ -33,6 +33,8 @@ public class AddExercise extends JFrame implements ActionListener {
         setLocationRelativeTo(null);
     }
 
+    //MODIFIES: InitialGUi
+    //EFFECTS: Decreases daily counter by entered calories amount
     @Override
     public void actionPerformed(ActionEvent e) {
         try {

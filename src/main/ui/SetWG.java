@@ -18,6 +18,7 @@ public class SetWG extends JFrame {
     private JFrame newFrame;
     private JButton enter = new JButton("Enter");
 
+    //EFFECTS: Creates new InitialGUI with TrackerManager with Weight goal with weight and goal
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public SetWG() {
         newFrame = new JFrame();
@@ -41,8 +42,7 @@ public class SetWG extends JFrame {
                     int currentWeight = Integer.parseInt(weight.getText());
                     tm = new TrackerManager("tracker", new WeightGoal(newGoal, currentWeight));
                     setVisible(false);
-                    new InitialGUI(tm);
-                    setVisible(true);
+                    new InitialGUI(tm).setVisible(true);
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(newFrame, "Please enter valid numbers");
                 }

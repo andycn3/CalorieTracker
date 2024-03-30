@@ -48,8 +48,7 @@ public class StarterGui extends JFrame {
                     JOptionPane.showMessageDialog(x, "An error occurred");
                 }
                 setVisible(false);
-                new InitialGUI(tm);
-                setVisible(true);
+                new InitialGUI(tm).setVisible(true);
             }
         });
 
@@ -57,8 +56,7 @@ public class StarterGui extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                new SetWG();
-                setVisible(true);
+                new SetWG().setVisible(true);
             }
         });
     }

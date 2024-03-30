@@ -4,13 +4,18 @@ import model.TrackerManager;
 import model.WeeklyTracker;
 import persistence.JsonWriter;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.LinkedList;
 
-
+//Represents main operation window
 public class InitialGUI extends JFrame {
     private TrackerManager tm;
     private JPanel left;
@@ -27,6 +32,8 @@ public class InitialGUI extends JFrame {
     private static final String JSON_STORE = "./data/trackermanager.json";
     private JsonWriter jsonWriter;
 
+    //EFFECTS: Creates the main homescreen with buttons, image, and trackers
+    @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public InitialGUI(TrackerManager tm) {
         this.tm = tm;
         desktop = new JFrame("Calorie Tracker");
@@ -42,9 +49,14 @@ public class InitialGUI extends JFrame {
         displayTrackers(tm);
         left.setLayout(new GridLayout(2,1));
         left.add(buttonsDisplay(tm));
-        JLabel image = new JLabel(new ImageIcon("healthyImage.png"));
-        left.add(image);
-        image.setVisible(true);
+        try {
+            BufferedImage photo = ImageIO.read(new File("healthyImage.jpg"));
+            JLabel picLabel = new JLabel(new ImageIcon(photo));
+            left.add(picLabel);
+        } catch (IOException e) {
+            System.err.println("Error displaying photo");
+            e.printStackTrace();
+        }
         left.setVisible(true);
         desktop.setVisible(true);
         desktop.setMinimumSize(new Dimension(1000, 1000));
@@ -53,6 +65,7 @@ public class InitialGUI extends JFrame {
     }
 
 
+    //EFFECTS: Puts the trackers together on the right side of the main frame
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public void displayTrackers(TrackerManager trackerManager) {
         wgLabel = new JLabel("Calorie Goal");
@@ -89,6 +102,7 @@ public class InitialGUI extends JFrame {
 
     }
 
+    //EFFECTS: Turns the weekly tracker value into strings to be displayed
     public String makeText(WeeklyTracker wt) {
         String text = "";
         if (wt.getWeekCals().isEmpty()) {
@@ -101,11 +115,13 @@ public class InitialGUI extends JFrame {
         }
     }
 
+    //Creates a new panel for the buttons and call method to add functions to them
     public JPanel buttonsDisplay(TrackerManager tm) {
         JPanel container = new JPanel();
         return (addFunctionsToPane(container, tm));
     }
 
+    //EFFECTS: Adds functions to the buttons
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public JPanel addFunctionsToPane(JPanel pane, TrackerManager tm) {
         Color color = Color.DARK_GRAY;
@@ -125,6 +141,8 @@ public class InitialGUI extends JFrame {
         previous.setAlignmentX(Component.CENTER_ALIGNMENT);
         setButtonFunctions(previous,"previous", color, pane);
         previous.addActionListener(new ActionListener() {
+            //MODIFIES: This
+            //EFFECTS: Adds previous cals to tracker and changes the display
             @Override
             public void actionPerformed(ActionEvent e) {
                 int x = tm.getDailyTracker().getDailyCount()
@@ -155,6 +173,10 @@ public class InitialGUI extends JFrame {
         end.setAlignmentX(Component.CENTER_ALIGNMENT);
         setButtonFunctions(end,"end", color, pane);
         end.addActionListener(new ActionListener() {
+            //MODIFIES: This
+            //EFFECTS: Creates popup asking if the user ate today if there are no entries
+            //              Adds entry of 0 if not and just closes if yes
+            //          Otherwise resents the tracker and adds the day to the week
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (tm.getDailyTracker().getDailyCount() == 0) {
@@ -191,10 +213,23 @@ public class InitialGUI extends JFrame {
                 new ChangeWeightGoal(tm, x);
             }
         });
+        JButton clearWeek = new JButton("Clear Week");
+        clearWeek.setAlignmentX(Component.CENTER_ALIGNMENT);
+        setButtonFunctions(clearWeek,"clear", color, pane);
+        clearWeek.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                LinkedList<Integer> blank = new LinkedList<>();
+                tm.getWeeklyTracker().setWeekCals(blank);
+                refreshTracker(tm);
+            }
+        });
         JButton quit = new JButton("Quit Application");
         quit.setAlignmentX(Component.CENTER_ALIGNMENT);
         setButtonFunctions(quit,"quit", color1, pane);
         quit.addActionListener(new ActionListener() {
+            //EFFECTS: Displays popup asking if the user wants to save or not
+            //          Saves and closes if yes, just closes if no
             @Override
             public void actionPerformed(ActionEvent e) {
                 int response = JOptionPane.showConfirmDialog(
@@ -222,6 +257,8 @@ public class InitialGUI extends JFrame {
         return pane;
     }
 
+    //MODIFIES: button, This
+    //EFFECTS: Sets button colour and adds it to panel
     public void setButtonFunctions(JButton button, String string, Color color, JPanel pane) {
         button.setActionCommand(string);
         button.setOpaque(true);
@@ -229,6 +266,8 @@ public class InitialGUI extends JFrame {
         pane.add(button);
     }
 
+    //MODIFIES: This
+    //EFFECTS: Updates the main frame with updated info
     public void refreshTracker(TrackerManager trackerManager) {
         right.revalidate();
         right.repaint();
@@ -252,6 +291,7 @@ public class InitialGUI extends JFrame {
         right.repaint();
     }
 
+    //EFFECTS: Exits the frame
     public void close() {
         System.exit(0);
     }
