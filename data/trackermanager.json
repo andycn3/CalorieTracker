@@ -1,8 +1,8 @@
 {
     "weeklyTracker": [],
     "weightGoal": {
-        "goal": "gain",
-        "currentWeight": 170
+        "goal": "lose",
+        "currentWeight": 190
     },
     "knownFoods": [
         {
@@ -61,9 +61,9 @@
             "servingSize": 1
         }
     ],
-    "name": "Loaded data",
+    "name": "tracker",
     "dailyTracker": {
-        "previousCals": 800,
-        "dailyCount": 2050
+        "previousCals": 0,
+        "dailyCount": 0
     }
 }

@@ -1,8 +1,8 @@
 package ui;
 
 import model.*;
-import persistence.JsonWriter;
 import persistence.JsonReader;
+import persistence.JsonWriter;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -63,6 +63,7 @@ public class UserInterface {
         System.out.println("You can end the day and add today's progress to your week by typing \"End\"");
         System.out.println("You can view your week progress by typing \"Week\"");
         System.out.println("To change your weight / goal type \"Change\"");
+        System.out.println("To close app type \"Quit\"");
     }
 
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
@@ -288,4 +289,5 @@ public class UserInterface {
             addFood();
         }
     }
+
 }
