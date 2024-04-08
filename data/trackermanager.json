@@ -1,8 +1,8 @@
 {
-    "weeklyTracker": [],
+    "weeklyTracker": [{"aDayCount": 1610}],
     "weightGoal": {
-        "goal": "lose",
-        "currentWeight": 190
+        "goal": "maintain",
+        "currentWeight": 170
     },
     "knownFoods": [
         {
@@ -59,11 +59,16 @@
             "name": "rice",
             "cals": 200,
             "servingSize": 1
+        },
+        {
+            "name": "cake",
+            "cals": 200,
+            "servingSize": 1
         }
     ],
     "name": "tracker",
     "dailyTracker": {
-        "previousCals": 0,
+        "previousCals": 200,
         "dailyCount": 0
     }
 }

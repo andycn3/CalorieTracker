@@ -1,5 +1,7 @@
 package ui;
 
+import model.Event;
+import model.EventLog;
 import model.TrackerManager;
 import model.WeeklyTracker;
 import persistence.JsonWriter;
@@ -7,8 +9,7 @@ import persistence.JsonWriter;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -16,7 +17,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 
 //Represents main operation window
-public class InitialGUI extends JFrame {
+public class InitialGUI extends JFrame implements WindowListener {
     private TrackerManager tm;
     private JPanel left;
     private JPanel right;
@@ -36,7 +37,7 @@ public class InitialGUI extends JFrame {
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public InitialGUI(TrackerManager tm) {
         this.tm = tm;
-        desktop = new JFrame("Calorie Tracker");
+        setTitle("Calorie Tracker");
         left = new JPanel();
         right = new JPanel();
         JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, left, right);
@@ -58,12 +59,50 @@ public class InitialGUI extends JFrame {
             e.printStackTrace();
         }
         left.setVisible(true);
-        desktop.setVisible(true);
-        desktop.setMinimumSize(new Dimension(1000, 1000));
-        desktop.add(splitPane);
-        desktop.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setVisible(true);
+        setMinimumSize(new Dimension(1000, 1000));
+        add(splitPane);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        addWindowListener(this);
+
     }
 
+    @Override
+    public void windowOpened(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowClosing(WindowEvent e) {
+        for (Event ev : EventLog.getInstance()) {
+            System.out.println(ev.toString());
+        }
+    }
+
+    @Override
+    public void windowClosed(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowIconified(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowDeiconified(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowActivated(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowDeactivated(WindowEvent e) {
+
+    }
 
     //EFFECTS: Puts the trackers together on the right side of the main frame
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
@@ -157,7 +196,7 @@ public class InitialGUI extends JFrame {
         addFavourite.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new AddNewFavouriteFood(tm, x);
+                new AddNewFavouriteFood(tm);
             }
         });
         JButton exercise = new JButton("Add Exercise");
@@ -193,12 +232,12 @@ public class InitialGUI extends JFrame {
                     if (response == JOptionPane.OK_OPTION) {
                         tm.getWeeklyTracker().addDay(tm.getDailyTracker());
                         refreshTracker(tm);
-                        System.out.println("User pressed OK.");
                     } else if (response == JOptionPane.CANCEL_OPTION) {
                         dispose();
                     }
                 } else {
                     tm.getWeeklyTracker().addDay(tm.getDailyTracker());
+                    tm.getDailyTracker().setDailyCount(0);
                     refreshTracker(tm);
                 }
 
@@ -248,9 +287,15 @@ public class InitialGUI extends JFrame {
                     } catch (FileNotFoundException ex) {
                         System.out.println("Unable to write to file: " + JSON_STORE);
                     }
-                    x.close();
+                    for (Event ev : EventLog.getInstance()) {
+                        System.out.println(ev.toString());
+                    }
+                    System.exit(0);
                 } else {
-                    x.close();
+                    for (Event ev : EventLog.getInstance()) {
+                        System.out.println(ev.toString());
+                    }
+                    System.exit(0);
                 }
             }
         });

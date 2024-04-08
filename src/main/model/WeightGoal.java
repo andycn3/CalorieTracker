@@ -15,6 +15,9 @@ public class WeightGoal implements Writable {
     public WeightGoal(String goal, int currentWeight) {
         this.goal = goal;
         this.currentWeight = currentWeight;
+        String s = "created a new weight goal: " + goal + ", " + currentWeight + "lbs";
+        Event weight = new Event(s);
+        EventLog.getInstance().logEvent(weight);
     }
 
     public String getGoal() {
@@ -22,6 +25,9 @@ public class WeightGoal implements Writable {
     }
 
     public void setGoal(String newGoal) {
+        String s = "set goal to " + newGoal;
+        Event x = new Event(s);
+        EventLog.getInstance().logEvent(x);
         goal = newGoal;
     }
 
@@ -30,6 +36,9 @@ public class WeightGoal implements Writable {
     }
 
     public void setCurrentWeight(int newWeight) {
+        String s = "set current weight to " + newWeight;
+        Event x = new Event(s);
+        EventLog.getInstance().logEvent(x);
         currentWeight = newWeight;
     }
 

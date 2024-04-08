@@ -24,6 +24,10 @@ public class DailyTracker implements Writable {
     public void addFood(Food meal, int serving) {
         dailyCount += (meal.getCals() * serving);
         previousCals = (meal.getCals() * serving);
+        String s = "added " + previousCals + " to daily tracker";
+        Event added = new Event(s);
+        EventLog.getInstance().logEvent(added);
+
     }
 
     //REQUIRES: Food is not in the database and serving and servingSize > 0
@@ -32,6 +36,9 @@ public class DailyTracker implements Writable {
     public void addFoodNotListed(int cals, int serving, int servingSize) {
         dailyCount += (int) (cals * ((double) serving / (double) servingSize));
         previousCals = (int) (cals * ((double) serving / (double) servingSize));
+        String s = "added " + previousCals + " to daily tracker";
+        Event added = new Event(s);
+        EventLog.getInstance().logEvent(added);
     }
 
     //REQUIRES: previousCals isn't at 0
@@ -39,6 +46,9 @@ public class DailyTracker implements Writable {
     //EFFECTS: Adds previousCals to the daily calorie count
     public void addPrevious() {
         dailyCount += previousCals;
+        String s = "added " + previousCals + " to daily tracker";
+        Event added = new Event(s);
+        EventLog.getInstance().logEvent(added);
     }
 
     //REQUIRES: cals > 0
@@ -46,6 +56,9 @@ public class DailyTracker implements Writable {
     //EFFECTS: Removes calories burned from dailyCount
     public void removeCals(int cals) {
         dailyCount -= cals;
+        String s = "removed " + previousCals + " to daily tracker";
+        Event removed = new Event(s);
+        EventLog.getInstance().logEvent(removed);
     }
 
     public int getDailyCount() {
@@ -58,6 +71,9 @@ public class DailyTracker implements Writable {
 
     public void setDailyCount(int num) {
         dailyCount = num;
+        String s = "set daily tracker to " + num;
+        Event added = new Event(s);
+        EventLog.getInstance().logEvent(added);
     }
 
     public void setPreviousCals(int num) {

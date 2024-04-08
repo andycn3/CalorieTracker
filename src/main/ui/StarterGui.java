@@ -13,10 +13,6 @@ public class StarterGui extends JFrame {
 
     private TrackerManager tm;
     private JLabel welcomeLabel;
-    private JLabel goalLabel = new JLabel("Enter New Goal (Lose, Gain, Maintain):");
-    private JLabel weightLabel = new JLabel("Enter Weight (in lbs):");
-    private JTextArea goal;
-    private JTextArea weight;
     private JButton load = new JButton("Saved File");
     private JButton fresh = new JButton("New File");
     private static final String JSON_STORE = "./data/trackermanager.json";

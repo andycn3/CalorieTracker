@@ -36,6 +36,9 @@ public class WeeklyTracker {
             dayCount = dayCals.getDailyCount();
             weekCals.add(dayCount);
         }
+        String s = "added new day with "  + dayCals.getDailyCount() + " calories to week";
+        Event addDay = new Event(s);
+        EventLog.getInstance().logEvent(addDay);
     }
 
     private JSONObject dayCountToJson(int dayCount) {

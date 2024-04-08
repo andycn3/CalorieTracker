@@ -69,3 +69,25 @@ going to the home page as that's where the image is
 pressing quit then selecting yes when prompted to save
 - You can reload the state of my application by
 pressing saved file on the initial welcome screen.
+
+
+# Phase 4: Task 2
+
+- Sun Apr 07 17:46:27 PDT 2024
+created a new weight goal: lose, 180lbs
+- Sun Apr 07 17:46:36 PDT 2024
+added 855 to daily tracker
+- Sun Apr 07 17:46:37 PDT 2024
+set daily tracker to 1710
+- Sun Apr 07 17:46:42 PDT 2024
+saved cake to favourite foods
+- Sun Apr 07 17:46:48 PDT 2024
+added 200 to daily tracker
+- Sun Apr 07 17:46:53 PDT 2024
+set daily tracker to 1610
+- Sun Apr 07 17:46:55 PDT 2024
+added new day with 1610 calories to week
+- Sun Apr 07 17:46:55 PDT 2024
+set daily tracker to 0
+- Sun Apr 07 17:47:07 PDT 2024
+created a new weight goal: maintain, 170lbs

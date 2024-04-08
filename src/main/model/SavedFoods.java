@@ -43,7 +43,9 @@ public class SavedFoods {
         if (!(hasName(meal))) {
             knownFoods.add(food);
         }
-
+        String s = "saved " + meal + " to favourite foods";
+        Event foods = new Event(s);
+        EventLog.getInstance().logEvent(foods);
     }
 
     public boolean hasName(String meal) {

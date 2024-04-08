@@ -10,17 +10,15 @@ import java.awt.event.ActionListener;
 public class AddNewFavouriteFood extends JFrame implements ActionListener {
 
     private TrackerManager tm;
-    private InitialGUI gui;
     private JLabel nameLabel = new JLabel("Enter Food Name:");
     private JLabel calsLabel = new JLabel("Enter Calories Per Serving");
     private JTextArea name;
     private JTextArea cals;
     private JButton enter = new JButton("Enter");
 
-    public AddNewFavouriteFood(TrackerManager tracker, InitialGUI graphic) {
+    public AddNewFavouriteFood(TrackerManager tracker) {
         super("Add A Favourite");
         tm = tracker;
-        gui = graphic;
         setMinimumSize(new Dimension(500, 500));
         setLayout(new GridLayout(5, 1));
         name = new JTextArea();
