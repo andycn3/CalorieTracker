@@ -1,8 +1,6 @@
-# My Personal Project
+# Calorie Tracker
 
-## Calorie Tracker
-
-**PROJECT DESCRIPTION:**
+**DESCRIPTION:**
 
 This application will first ask the user to
 enter their weight *(lbs)* and
@@ -49,15 +47,7 @@ this project, I would first set it to gaining weight, then once I'm
 happy with my weight, I'd set it to lose weight. Thus, this project
 seems quite practical to me.
 
-**User Stories**:
-- As a user I want to be able to add the calories of something I ate to my caloric intake for that day
-- As a user I want to be able to view my caloric intake for the past 7 days
-- As a user I want to be able to set new weight goals and update my weight progress as I go
-- As a user I want to be able to enter the previous thing I ate quickly by duplicating my previous entry.
-- As a user I want to have the option to save my daily and weekly calorie tracker when I close the app
-- As a user I want to have the option to load my weekly and daily tracker when I re-open the app
-
-# Instructions for Grader
+# Instructions:
 
 - You can generate the first required action related to the user story "adding multiple Xs to a Y" by
 pressing Add Favourite and entering the food name and cals
@@ -70,24 +60,4 @@ pressing quit then selecting yes when prompted to save
 - You can reload the state of my application by
 pressing saved file on the initial welcome screen.
 
-
-# Phase 4: Task 2
-
-- Sun Apr 07 17:46:27 PDT 2024
-created a new weight goal: lose, 180lbs
-- Sun Apr 07 17:46:36 PDT 2024
-added 855 to daily tracker
-- Sun Apr 07 17:46:37 PDT 2024
-set daily tracker to 1710
-- Sun Apr 07 17:46:42 PDT 2024
-saved cake to favourite foods
-- Sun Apr 07 17:46:48 PDT 2024
-added 200 to daily tracker
-- Sun Apr 07 17:46:53 PDT 2024
-set daily tracker to 1610
-- Sun Apr 07 17:46:55 PDT 2024
-added new day with 1610 calories to week
-- Sun Apr 07 17:46:55 PDT 2024
-set daily tracker to 0
-- Sun Apr 07 17:47:07 PDT 2024
-created a new weight goal: maintain, 170lbs
+  
