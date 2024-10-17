@@ -1,8 +1,8 @@
 {
-    "weeklyTracker": [{"aDayCount": 1610}],
+    "weeklyTracker": [],
     "weightGoal": {
-        "goal": "maintain",
-        "currentWeight": 170
+        "goal": "lose",
+        "currentWeight": 180
     },
     "knownFoods": [
         {
@@ -68,7 +68,7 @@
     ],
     "name": "tracker",
     "dailyTracker": {
-        "previousCals": 200,
-        "dailyCount": 0
+        "previousCals": 800,
+        "dailyCount": 1600
     }
 }
